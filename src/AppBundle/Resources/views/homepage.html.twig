@@ -1,0 +1,32 @@
+{% extends 'AppBundle:layout.html.twig' %}
+
+{% block main_content %}
+	<div class="container" data-ng-app="numericApp" data-ng-cloak>
+		<div class="panel panel-primary" data-ng-controller="numericController">
+			<div class="panel-heading"><h2>Numerical Method</h2></div>
+      <div class="panel-body">
+  			<div class="panel-group" id="weekly">
+  				<div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+  					    <a class="week-head" data-toggle="collapse" href="#firstWeek" data-parent="#weekly">First Week</a>
+              </h4>
+            </div>
+            {% include 'AppBundle:Includes:first_week.html.twig' %}
+          </div>
+  				<div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+  					    <a class="week-head collapsed" data-toggle="collapse" href="#secondWeek" data-parent="#weekly">Second Week</a>
+              </h4>
+            </div>
+            {% include 'AppBundle:Includes:second_week.html.twig' %}
+          </div>
+  			</div>
+      </div>
+      <div class="panel-footer">
+        
+      </div>
+		</div>
+	</div>
+{% endblock %}

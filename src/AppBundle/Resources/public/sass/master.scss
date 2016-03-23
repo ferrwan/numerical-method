@@ -1,0 +1,9 @@
+$icon-font-path: '../fonts/';
+$fa-font-path: '../fonts/';
+@import '../../../components/bootstrap-sass/assets/stylesheets/_bootstrap';
+@import '../../../components/font-awesome/css/font-awesome';
+
+@import 'global.scss';
+@import 'header.scss';
+@import 'homepage.scss';
+@import 'footer.scss';

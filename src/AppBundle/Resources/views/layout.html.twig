@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+  <header>
+    <nav class="navbar navbar-default fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-head">
+          <a href="" class="navbar-brand"></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href=""></a></li>
+          <li><a href="Active">Numerical Method</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  {% block main_content %}{% endblock %}
+  <footer>
+    <div class="row">
+      <div class="container-fluid">
+        The Footer. Copyright <span class="glyphicon glyphicon-copyright"></span>
+      </div>
+    </div>
+  </footer>
+{% endblock %}

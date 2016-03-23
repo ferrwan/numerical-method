@@ -1,0 +1,35 @@
+{
+  "name": "bower.json",
+  "authors": [
+    "Ferry Irawan <ferrwanz@gmail.com>"
+  ],
+  "description": "Numethod Dependencies",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "HTML5"
+  ],
+  "license": "MIT",
+  "homepage": "numetho.dev/homepage",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "angular": "1.3.20",
+    "bootstrap": "^3.3.6",
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6",
+    "font-awesome-sass": "^4.5.0",
+    "font-awesome": "^4.5.0"
+  },
+  "resolutions": {
+    "angular": "1.3.20"
+  }
+}

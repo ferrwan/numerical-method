@@ -1,0 +1,81 @@
+<div id="firstWeek" class="panel-collapse collapse in">
+  <div class="panel-body">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#first-1" data-toggle="tab">Menghitung Akar dari Sebuah Bilangan</a>
+      </li>
+      <li>
+        <a href="#first-2" data-toggle="tab">Deret Taylor / MacLaurin</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="first-1" class="tab-pane fade in active">
+        <div class="mt-15">
+          <span class="fa fa-link"></span>
+          <div class="badge">Menghitung Akar Dari Sebuah Bilangan</div>
+        </div>
+        <div style="margin-top:10px">
+          <form id="sqrtForm" class="form-horizontal" data-ng-submit="sqrtCalculate(sqrtInput)">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="sqrtInput" class="col-sm-4 control-label">Input a number: </label>
+                <div class="col-sm-6 no-pr">
+                  <input type="text" class="form-control" data-ng-model="sqrtInput" required>
+                </div>
+                <button type="submit" class="col-sm-1 btn btn-info"><span class="glyphicon glyphicon-share-alt"></span></button>
+                <button type="button" class="col-sm-1 btn btn-warning" ng-click="reset()">
+                  <span class="glyphicon glyphicon-refresh"></span>
+                </button>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label class="control-label">The Smallest Number : 0.0000000123  || 123*10<sup>-10</sup></label>
+            </div>
+            {% verbatim %}
+            <div data-ng-show="datas">
+              <table class="table table-striped table-hover mn-last-table th-center">
+                <tr>
+                  <th>Iteration</th>
+                  <th>S</th>
+                  <th>T</th>
+                  <th>Eps</th>
+                </tr>
+                <tr data-ng-repeat="x in datas" class="center">
+                  <td>{{ $index }}</td>
+                  <td>{{ x.S | number: 10 }}</td>
+                  <td>{{ x.T | number: 10 }}</td>
+                  <td>{{ x.eps | number: 10 }}</td>
+                </tr>
+              </table>
+                <h3>The Square Root Result : <b><u>{{ sqrtResult | number: 10}}</u></b></h3>
+            </div>
+            {% endverbatim %}
+          </form>
+        </div>
+      </div>
+      <div id="first-2" class="tab-pane fade in">
+        <div class="mt-15">
+          <span class="fa fa-link"></span> <div class="badge">Deret Taylor / MacLaurin</div>
+        </div>
+        <div style="margin-top:10px">
+          <form id="deretForm" class="form-horizontal" data-ng-submit="">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="sqrtInput" class="col-sm-4 control-label">Input a number: </label>
+                <div class="col-sm-6 no-pr">
+                  <input type="text" class="form-control" data-ng-model="sqrtInput" required>
+                </div>
+                <button type="submit" class="col-sm-1 btn btn-info"><span class="glyphicon glyphicon-share-alt"></span></button>
+                <button type="button" class="col-sm-1 btn btn-warning" ng-click="reset()">
+                  <span class="glyphicon glyphicon-refresh"></span>
+                </button>
+              </div>
+            </div>
+            {% verbatim %}
+            {% endverbatim %}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

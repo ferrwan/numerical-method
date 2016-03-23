@@ -1,0 +1,42 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.week-head{
+  padding: 3px;
+  color: $twitHref;
+  &:hover, &:focus, &:active{
+    text-decoration: none;
+    color: #31708f;
+  }
+  &:hover{
+    color: $twitHref !important;
+  }
+  &.collapsed:after{
+    content: "\e258";
+  }
+  &:after{
+    float: left;
+    content: "\e259";
+    font-family: "Glyphicons Halflings";
+  }
+  -webkit-transition: linear 0.1s;
+  -moz-transition: linear 0.1s;
+  -ms-transition: linear 0.1s;
+  -o-transition: linear 0.1s;
+  transition: linear 0.1s;
+}
+
+.weekly-content{
+  padding: 7px 18px;
+}
+
+.mn-last-table{
+  tr{
+    &:last-child{
+      background-color: #3286df !important;
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+}

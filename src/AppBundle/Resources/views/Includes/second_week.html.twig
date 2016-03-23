@@ -1,0 +1,151 @@
+<div id="secondWeek" class="panel-collapse collapse" data-ng-controller="bisectionController">
+  <div class="panel-body">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#second-1" data-toggle="tab">Bisection Method</a>
+      </li>
+      <li>
+        <a href="#second-2" data-toggle="tab">Regula Falsi Method</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="second-1" class="tab-pane fade in active">
+        <div class="mt-15">
+          <span class="fa fa-link"></span>
+          <div class="badge">Bisection Method</div>
+        </div>
+        <div style="margin-top:15px">
+          <form id="bisectionForm" class="form-horizontal" data-ng-submit="bisect.A <= bisect.B && bisectFunction.length > 1 && bisectCalculate(bisect)">
+            <div class="alert alert-warning">
+              <span class="glyphicon glyphicon-info-sign"></span> <b>Info</b>
+              <ul>
+                <li>
+                  Input the number field and the power field first to make a function. <br>
+                  Ex: To make <kbd>3x<sup>2</sup> - 4</kbd>
+                  <ol>
+                    <li>Type '3' (without quotation) in <u>number field</u>.</li>
+                    <li>Check the box to add variable then type '4' in <u>power field</u>, than click 'Add' button.</li>
+                    <li>Then type '-4' in <u>number field</u>.</li>
+                    <li>Check the box and type '0' (zero) in <u>power field</u> or just uncheck it, than click 'Add' button</li>
+                  </ol>
+                </li>
+                <li>The input of <i>'Left Position'</i> mustn't bigger than <i>'Right Position'</i>.</li>
+              </ul>
+            </div>
+            {% verbatim %}
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Function :</label>
+              <div class="col-sm-4 no-pr">
+                <div class="col-sm-6">
+                  <input type="number" data-ng-model="bisect.Num" class="form-control" placeholder="number">
+                  <div data-ng-click="bisect.Pow = 0">
+                    <input id="addVar" type="checkbox" data-ng-model="addBisVar">
+                    <label for="addVar">Add variable ?</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <input data-ng-disabled="!addBisVar" type="number" ng-model="bisect.Pow" class="form-control" placeholder="the power">
+                </div>
+              </div>
+              <label>
+                <h4 class="no-margin">
+                  <span class="glyphicon glyphicon-arrow-right"></span>
+                  {{ bisect.Num | number }}<span data-ng-show="addBisVar">x<sup>{{ bisect.Pow | number }}</sup></span>
+                </h4>
+              </label>
+              <button type="button" class="btn btn-success" data-ng-click="bisAddFunct(bisect)" style="margin-left:8px">Add</button>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-sm-2 control-label">f(x) = </label>
+              <div class="col-sm-10" style="margin-top:5px">
+                <code style="font-size:16px">
+                  <span data-ng-repeat="data in bisectFunction" data-ng-if='$index > 0'>
+                    <span data-ng-if='$index > 1'>+</span>
+                    {{ data.n | number}}<span data-ng-if="data.p > 0">x<sup>{{ data.p | number}}</sup></span>
+                  </span>
+                </code>
+              </div>
+            </div>
+            {% endverbatim %}
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="left" class="col-sm-3 control-label">Left Position</label>
+                <div class="col-sm-7">
+                  <input type="number" data-ng-model="bisect.A" class="form-control" placeholder="Input left position" required step="any">
+                </div>
+              </div>
+              <div class="alert alert-danger" data-ng-show="bisect.A > bisect.B">
+                <span class="glyphicon glyphicon-exclamation-sign"></span> The Left input is bigger than the Right one. Please change the input !
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="left" class="col-sm-3 control-label">Right Position</label>
+                <div class="col-sm-7">
+                  <input type="number" data-ng-model="bisect.B" class="form-control" placeholder="Input right position" required step="any">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="left" class="col-sm-3 control-label">Interval</label>
+                <div class="col-sm-7">
+                  <input type="number" data-ng-model="bisect.Inv" class="form-control" placeholder="Input the Interval" required step="any">
+                </div>
+                <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-share-alt"></span></button>
+                <button type="button" class="btn btn-warning" ng-click="reset()">
+                  <span class="glyphicon glyphicon-refresh"></span>
+                </button>
+              </div>
+              <!-- <div class="alert alert-danger" data-ng-show="bisect.Inv < 0">
+                <span class="glyphicon glyphicon-exclamation-sign"></span> The Interval input is under 0. It must be greater equal to 0 !
+              </div> -->
+            </div>
+          </form>
+          {% verbatim %}
+            <div data-ng-show="datab">
+              <table class="table table-hover table-striped mn-last-table">
+                <tr class="th-center">
+                  <th>Iteration</th>
+                  <th>Left</th>
+                  <th>Mid</th>
+                  <th>Right</th>
+                  <th>f(left)</th>
+                  <th>f(mid)</th>
+                  <th>f(right)</th>
+                  <th>Range</th>
+                  <th>Epsilon</th>
+                  <th>Reasons</th>
+                  <th>Go / Stop</th>
+                </tr>
+                <tr data-ng-repeat="x in datab" class="center">
+                  <td>{{ $index }}</td>
+                  <td>{{ x.left | number:10 }}</td>
+                  <td>{{ x.mid | number:10 }}</td>
+                  <td>{{ x.right | number:10 }}</td>
+                  <td><span data-ng-if="!x.fa">-</span><span data-ng-if="x.fa">{{ x.fa }}</span></td>
+                  <td><span data-ng-if="!x.fc">-</span><span data-ng-if="x.fc">{{ x.fc }}</span></td>
+                  <td><span data-ng-if="!x.fb">-</span><span data-ng-if="x.fb">{{ x.fb }}</span></td>
+                  <td><span data-ng-if="!x.range">-</span>{{ x.range }}</td>
+                  <td>{{ x.eps | number:10 }}</td>
+                  <td>
+                    <span data-ng-if="((x.fb < 0 && x.fc > 0) || (x.fb >= 0 && x.fc < 0) && x.fc != 0) && x.eps > bisect.Inv">f(mid) and f(right) have different sign</span>
+                    <span data-ng-if="((x.fa < 0 && x.fc > 0) || (x.fa > 0 && x.fc < 0) && x.fc != 0) && x.eps > bisect.Inv">f(left) and f(mid) have different sign</span>
+                    <span data-ng-if="x.fc == 0 || x.fa == 0">Stop, because f(mid) * f(left) = 0 (zero)</span>
+                    <span data-ng-if="x.fa < 0 && x.fb < 0 && x.fc < 0 && x.eps > bisect.Inv">Epsilon's limit hasn't been reached</span>
+                    <span data-ng-if="x.eps <= bisect.Inv && (x.fc | number:10) != 0">Stop, because Epsilon's limit has been reached </span>
+                  </td>
+                  <td>
+                    <span data-ng-if="x.eps > bisect.Inv && x.fc !=0 && x.fa != 0" class="label label-success">Go</span>
+                    <span data-ng-if="x.eps <= bisect.Inv" class="label label-danger">Stop</span>
+                    <span data-ng-if="x.fc == 0 || x.fa == 0" class="label label-danger">Stop</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          {% endverbatim %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
