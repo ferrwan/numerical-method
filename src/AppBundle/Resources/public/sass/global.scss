@@ -1,4 +1,6 @@
 $twitHref: #1da1f2;
+$success-bootstrap: #5cb85c;
+$warning-bootstrap: #ec971f;
 
 .no-margin{
 	margin: 0;
@@ -18,7 +20,21 @@ $twitHref: #1da1f2;
 .no-pb{
 	padding-bottom: 0;
 }
-
+.pt-5{
+	padding-top: 5px;
+}
+.pb-5{
+	padding-bottom: 5px;
+}
+.pr-10{
+	padding-right: 10px;
+}
+.pl-10{
+	padding-left: 10px;
+}
+.add-padding{
+	padding: 5px 10px;
+}
 .center{
 	text-align: center;
 }
@@ -31,6 +47,28 @@ $twitHref: #1da1f2;
 		text-align: center;
 	}
 }
+
+.select-modif {
+	option{
+		margin: 40px;
+	}
+}
+.bb-black{
+	border-bottom: 1px solid #333;
+}
+.bl-success{
+	border-left: 6px solid $success-bootstrap;
+}
+
+.bl-warning{
+	border-left: 6px solid $warning-bootstrap;
+}
+
+.bg-success-15{
+	background-color: lighten($success-bootstrap, 15%);
+}
+
+
 // input.ng-invalid.ng-touched{
 // 	border-color: #f37272;
 // }

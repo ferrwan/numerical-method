@@ -1,0 +1,30 @@
+<div id="fourth-3" class="tab-pane fade in" data-ng-controller="cramerController">
+  <div class="mt-15">
+    <span class="fa fa-link"></span>
+    <div class="badge">Cramer Method</div>
+  </div>
+  <div style="margin-top:15px">
+    <form id="cramerForm" class="form-horizontal">
+      <div class="form-group">
+        <label for="sumFunc" class="col-xs-3">How many functions do you want ?</label>
+        <div class="col-xs-5">
+          <input type="number" class="col-xs-4" id="sumFunc" data-ng-model="sumFunc">
+        </div>
+      </div>
+      <div class="form-group" data-ng-show="sumFunc">
+        <label for="" class="col-xs-3">Input the Functions</label>
+        <div class="col-xs-5">
+          <table class="table table-hover table-striped table-bordered">
+            <tr data-ng-repeat="i in getNumber(sumFunc) track by $index">
+              <td>
+                <input type="text" data-ng-model="cramer[$index].func">
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      {% verbatim %}
+      {% endverbatim %}
+    </form>
+  </div>
+</div>

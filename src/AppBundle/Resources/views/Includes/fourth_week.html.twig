@@ -1,0 +1,20 @@
+<div id="fourthWeek" class="panel-collapse collapse">
+  <div class="panel-body">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#fourth-1" data-toggle="tab">Inverse</a>
+      </li>
+      <li>
+        <a href="#fourth-2" data-toggle="tab">Gauss-Jordan</a>
+      </li>
+      <li>
+        <a href="#fourth-3" data-toggle="tab">Cramer</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      {% include 'AppBundle:Includes:inverse.html.twig' %}
+      {# {% include 'AppBundle:Includes:gauss-jordan.html.twig' %} #}
+      {% include 'AppBundle:Includes:cramer.html.twig' %}
+    </div>
+  </div>
+</div>

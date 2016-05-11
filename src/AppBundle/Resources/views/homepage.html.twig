@@ -1,8 +1,8 @@
 {% extends 'AppBundle:layout.html.twig' %}
 
 {% block main_content %}
-	<div class="container" data-ng-app="numericApp" data-ng-cloak>
-		<div class="panel panel-primary" data-ng-controller="numericController">
+	<div class="container" data-ng-app="numericApp"  style="min-height: 550px" data-ng-cloak>
+		<div class="panel panel-primary" data-ng-controller="findRootController">
 			<div class="panel-heading"><h2>Numerical Method</h2></div>
       <div class="panel-body">
   			<div class="panel-group" id="weekly">
@@ -22,10 +22,63 @@
             </div>
             {% include 'AppBundle:Includes:second_week.html.twig' %}
           </div>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="week-head collapsed" data-toggle="collapse" href="#thirdWeek" data-parent="#weekly">Third Week</a>
+              </h4>
+            </div>
+            {% include 'AppBundle:Includes:third_week.html.twig' %}
+          </div>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a href="#fourthWeek" class="week-head collapsed" data-toggle="collapse" data-parent="#weekly">Fourth Week</a>
+              </h4>
+            </div>
+            {% include'AppBundle:Includes:fourth_week.html.twig' %}
+          </div>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a href="#sixthWeek" class="week-head collapsed" data-toggle="collapse" data-parent="#weekly">Sixth Week</a>
+              </h4>
+            </div>
+            {% include 'AppBundle:Includes:sixth_week.html.twig' %}
+          </div>
   			</div>
       </div>
       <div class="panel-footer">
-        
+        <div class="row">
+          <div class="col-sm-6">
+            <h4>The Lecturer :</h4>
+            <div class="col-sm-8 the-info no-pl">
+              <div class="col-sm-4 no-pl">
+                <img class="img-responsive br-black" src="{{ asset('bundles/app/img/ronsen.png') }}" alt="ronsen">
+              </div>
+              <h5>
+                <label class="no-pl col-sm-7">
+                  Dr. Ronsen Purba, M.Sc.
+                </label>
+              </h5>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <h4>Programmed By :</h4>
+            <div class="col-sm-8 the-info no-pl">
+              <div class="col-sm-4 no-pl">
+                <img class="img-responsive br-black" src="{{ asset('bundles/app/img/me.png') }}" alt="ronsen">
+              </div>
+              <h5>
+                <label class="col-sm-7 no-pl">
+                  Ferry Irawan <br>
+                  141110507 <br>
+                  TI-A Sore
+                </label>
+              </h5>
+            </div>
+          </div>
+        </div>
       </div>
 		</div>
 	</div>

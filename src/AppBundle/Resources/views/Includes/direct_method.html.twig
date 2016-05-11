@@ -1,0 +1,90 @@
+<div id="third-1" class="tab-pane fade in active" data-ng-controller="directController">
+  <div class="mt-15">
+    <span class="fa fa-link"></span>
+    <div class="badge">Direct Method</div>
+  </div>
+  <div style="margin-top:15px">
+   <form id="directForm" class="form-horizontal row" data-ng-submit="direct.A && theFunction.length > 1 && directCalculate(direct)">
+      {% verbatim %}
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Function :</label>
+        <div class="col-sm-4 no-pr">
+          <div class="col-sm-6">
+            <input type="number" data-ng-model="input.Num" class="form-control" placeholder="number">
+            <div data-ng-click="input.Pow = 0">
+              <input id="addVar" type="checkbox" data-ng-model="addVar">
+              <label for="addVar">Add variable ?</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <input data-ng-disabled="!addVar" type="number" ng-model="input.Pow" class="form-control" placeholder="the power">
+          </div>
+        </div>
+        <label>
+          <h4 class="no-margin">
+            <span class="glyphicon glyphicon-arrow-right"></span>
+            {{ input.Num | number }}<span data-ng-show="addVar">x<sup>{{ input.Pow | number }}</sup></span>
+          </h4>
+        </label>
+        <button type="button" class="btn btn-success" data-ng-click="addFunct(input)" style="margin-left:8px">Add</button>
+        <button type="button" class="btn btn-warning" data-ng-click="resetFunct()">Reset Function</button>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">f(x) : </label>
+        <div class="col-sm-5" style="margin-top:5px">
+          <code style="font-size:16px">
+            <span data-ng-repeat="data in theFunction" data-ng-if='$index > 0'>
+              <span data-ng-if='$index > 1'>+</span>
+              {{ data.n | number}}<span data-ng-if="data.p != 0">x<sup>{{ data.p | number}}</sup></span>
+            </span>
+          </code>
+        </div>
+        <button class="btn btn-info" type="button" data-ng-click="getX()" data-ng-disabled="theFunction.length < 3">Generate</button>
+      </div>
+      <div class="form-group" data-ng-show="pembilang">
+        <div class="col-sm-5 control-label" style="font-size: 22px; font-weight: bold">
+          <span>{{ aa }}<span data-ng-show="powFlag != 0">x<sup>{{ powFlag }}</sup></span> = </span>
+          <div style="display: inline-block">
+            <div data-ng-show="pembilang">
+              <span data-ng-repeat="data in pembilang" data-ng-show="$index > 0">
+                <span data-ng-show="$index > 1">+ </span>{{data.n}}<span data-ng-show="data.p != 0">x<sup>{{data.p}}</sup></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      {% endverbatim %}
+      </div>
+      <div class="form-group">
+        <label for="left" class="col-sm-2 control-label">X<sub>0</sub> :</label>
+        <div class="col-sm-7">
+          <input type="number" data-ng-model="direct.A" class="form-control" placeholder="Input the initial number of X" required step="any">
+        </div>
+        <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-share-alt"></span></button>
+        <button class="btn btn-warning" type="reset" data-ng-click="reset()"><span class="glyphicon glyphicon-refresh"></span></button>
+      </div>
+    </form>
+    {% verbatim %}
+    <table class="table table-striped table-hover table-bordered" data-ng-show="datad">
+      <tr style="text-align:right">
+        <th>Iteration</th>
+        <th>Xi</th>
+        <th>|X<sub>i</sub> - X<sub>i-1</sub>|</th>
+      </tr>
+      <tr data-ng-repeat="data in datad" style="text-align:right">
+        <td>{{ $index }}</td>
+        <td>{{ data.x1 }}</td>
+        <td>{{ data.x2 }}</td>
+      </tr>
+    </table>
+    <div class="alert alert-info" data-ng-if="directInf">
+      <h3>Stop because, there are 3 cells (from iteration <i>{{ datad.length - 3}}</i> until <i>{{ datad.length - 1}}</i>) that have same values.</h3>
+    </div>
+    <div class="alert alert-info" data-ng-if="imaginer">
+      <h3>Stop because the calculation has Imaginer Number.</h3>
+    </div>
+    <div class="alert alert-info" data-ng-if="infinity">
+      <h3>Stop because the calculation has Infinity Number.</h3>
+    </div>
+    {% endverbatim %}
+  </div>
+</div>

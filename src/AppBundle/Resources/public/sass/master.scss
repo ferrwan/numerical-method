@@ -1,6 +1,10 @@
 $icon-font-path: '../fonts/';
 $fa-font-path: '../fonts/';
+// Bootstrap CSS =====================================================
 @import '../../../components/bootstrap-sass/assets/stylesheets/_bootstrap';
+// Angular Bootstrap CSS =============================================
+@import '../../../components/angular-bootstrap/ui-bootstrap-csp.css';
+// Font Awesome CSS ==================================================
 @import '../../../components/font-awesome/css/font-awesome';
 
 @import 'global.scss';
