@@ -16,16 +16,29 @@
         for(var i = 0; i < $scope.data.length; i++) {
           $scope.data[i].check = false;
         }
-      })
+      });
 
       $scope.$watch('data', function() {
         $scope.no = 0;
         for(var i = 0; i < $scope.data.length; i++) {
           if($scope.data[i].check === true) {
               $scope.no++;
+              if($scope.no >= $scope.xPow + 1)
+                countError();
           }
         }
       }, true);
+
+      function countError() {
+        $scope.dataError = [];
+        var yy = absYY = new Array($scope.pairDefault);
+        for(var i=0; i<$scope.pairDefault; i++){
+          yy[i]=0;
+          var l=0;
+          for(var j=0; j<=$scope.xPow; j++) {
+          }
+        }
+      }
 
       function newtonInterCalc() {
         $scope.b = [];
@@ -78,6 +91,7 @@
       $scope.opt = [];
       $scope.xPow = 1;
       $scope.newtonInterCalc = newtonInterCalc;
+      $scope.countError = countError;
     }
 
 })();

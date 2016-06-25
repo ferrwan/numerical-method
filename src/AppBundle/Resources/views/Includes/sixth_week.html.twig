@@ -1,15 +1,17 @@
 <div id="sixthWeek" class="panel-collapse collapse">
   <div class="panel-body">
     <ul class="nav nav-tabs">
+      {#
       <li class="active">
         <a href="#sixth-1" data-toggle="tab">Direct Interpolation</a>
       </li>
+      #}
       <li>
         <a href="#sixth-2" data-toggle="tab">Newton Interpolation</a>
       </li>
     </ul>
     <div class="tab-content">
-      {% include 'AppBundle:Includes:direct_interpolation.html.twig' %}
+      {# {% include 'AppBundle:Includes:direct_interpolation.html.twig' %} #}
       {% include 'AppBundle:Includes:newton_interpolation.html.twig' %}
     </div>
   </div>
