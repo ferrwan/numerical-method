@@ -4,11 +4,11 @@
 parameters:
     pdo_driver: pgsql
     database_driver:   pdo_pgsql
-    database_host:     127.0.0.1
+    database_host:     ec2-54-83-27-147.compute-1.amazonaws.com
     database_port:     5432
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_name:     deh3vmgpugkos1
+    database_user:     yxirmgzjiskchl
+    database_password: ZKHvkONcxr_psBMBbKSvgitI1V
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 
