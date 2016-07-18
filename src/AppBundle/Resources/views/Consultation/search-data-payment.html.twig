@@ -1,0 +1,60 @@
+<div id="listConsult" class="tab-pane fade in">
+  <h1>List of Consultant</h1>
+  <form class="form-horizontal" role="form">
+    <div class="row">
+      {% set a = "1" %}
+      {% for i in 0..5  %}
+        <div class="col-xs-2" style="border-right: 1px solid">
+          <img class="img-responsive" src="{{ asset('testimonial.png') }}">
+          <div style="border-left: 3px solid #3298df; margin-top: 5px; padding-left: 3px; background-color: #f2f2f2">Consultant {{ a }}</div>
+          {% set a = a + 1 %}
+          <br>
+          <div>
+            <button class="btn btn-primary">Ask something</button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </form>
+</div>
+<div id="economyData" class="tab-pane fade in">
+  <h1>Data Keuangan</h1>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-xs-3 control-label">Date</label>
+      <div class="col-xs-5">
+        <input class="form-control" type="date" id="date">
+      </div>
+      <label class="btn btn-info" role="button" for="date"><i class="fa fa-calendar"></i></label>
+    </div>
+    <div class="form-group">
+      <label class="col-xs-3 control-label">Income</label>
+      <div class="col-xs-5">
+        <input class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-xs-3 control-label">Outcome</label>
+      <div class="col-xs-5">
+        <input class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-3"></div>
+      <button class="btn btn-success">Save</button>
+    </div>
+  </form>
+</div>
+<div id="payment" class="tab-pane fade in">
+  <h1>Payment</h1>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-xs-3 control-label">Via ATM</label>
+      <div class="col-xs-5">
+        <button class="btn btn-primary">Klik BCA</button>
+        <button class="btn btn-warning">Maybank</button>
+      </div>
+    </div>
+  </form>
+</div>
+

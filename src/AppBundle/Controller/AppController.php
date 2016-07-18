@@ -14,4 +14,11 @@ class AppController extends Controller
 			'AppBundle::homepage.html.twig'
 		);
 	}
+
+  public function consultationAction(Request $request)
+  {
+    return $this->render(
+      'AppBundle::consultation.html.twig'
+    );
+  }
 }

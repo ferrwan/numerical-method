@@ -2,3 +2,8 @@ homepage:
     path: /
     defaults:
         _controller: AppBundle:App:homepage
+
+consultation:
+    path: /consultation
+    defaults:
+        _controller: AppBundle:App:consultation

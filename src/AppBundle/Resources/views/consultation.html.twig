@@ -1,0 +1,83 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+  <header>
+    <nav class="navbar navbar-default fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-head">
+          <a href="" class="navbar-brand"></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href=""></a></li>
+          <li><a href="Active">Numerical Method</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  {% block main_content %}
+    <div class="container">
+      <div class="panel panel-success">
+        <div class="panel-body">
+          <div class="panel-group" id="consult">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#inform" data-parent="#consult">Form In</a>  
+                </h4>
+              </div>
+              <div id="inform" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#signup" data-toggle="tab">Sign-Up</a></li>
+                    <li><a href="#signin" data-toggle="tab">Sign-In</a></li>
+                    <li><a href="#economyData" data-toggle="tab">Data Keuangan</a></li>
+                    <li><a href="#payment" data-toggle="tab">Payment</a></li>
+                    <li><a href="#consultRegist" data-toggle="tab">Consultant Registration</a></li>
+                    <li><a href="#listPay" data-toggle="tab">Form List Payment</a></li>
+                    <li><a href="#searchConsult" data-toggle="tab">Search Consultant</a></li>
+                    <li><a href="#listConsult" data-toggle="tab">List Consultant</a></li>
+                    <li><a href="#userAsk" data-toggle="tab">User Ask</a></li>
+                    <li><a href="#viewUserAsk" data-toggle="tab">View User Question</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    {% include "AppBundle:Consultation:sign-in-out.html.twig" %}
+                    {% include "AppBundle:Consultation:search-data-payment.html.twig" %}
+                    {% include "AppBundle:Consultation:consultant.html.twig" %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#outform" data-parent="#consult">Form Out</a>
+                </h4>
+              </div>
+              <div id="outform" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul class="nav nav-tabs">
+                    <li><a href="#consultAns" data-toggle="tab">Consultant Ans</a></li>
+                    <li><a href="#memberFinance" data-toggle="tab">Member Financial</a></li>
+                    <li><a href="#listMember" data-toggle="tab">List Members</a></li>
+                    <li><a href="#listConsult" data-toggle="tab">List Consultants</a></li>
+                    <li><a href="#listPayment" data-toggle="tab">List Payment</a></li>
+                    <li><a href="#outListMember" data-toggle="tab">Out List Member</a></li>
+                    <li><a href="#outListConsult" data-toggle="tab">Out List Consultants</a></li>
+                    <li><a href="#outListPay" data-toggle="tab">Out List Payment</a></li>
+                    <li><a href="#faktur" data-toggle="tab">Faktur Bukti Pembayaran</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    {% include "AppBundle:Consultation:economy-status.html.twig" %}
+                    {% include "AppBundle:Consultation:listMember.html.twig" %}
+                    {% include "AppBundle:Consultation:consultation-out.html.twig" %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+{% endblock %}

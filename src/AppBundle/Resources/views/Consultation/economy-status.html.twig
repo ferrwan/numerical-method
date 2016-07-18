@@ -1,0 +1,24 @@
+<div id="memberFinance" class="tab-pane fade in">
+  <h1>Financial Status</h1>
+  <div style="width: 100%; padding: 5px 20px;">
+    <h3>2016</h3>
+    <h4 style="padding: 4px 6px; border-left: 5px solid #327cb9; background-color: #f2f2f2">May</h4>
+    {% for i in 0..30 %}
+      {% set j = random(i..30) %}
+      {% if i == j %}
+        {% if i is divisible by(2) %}
+          <div style="border: 1px solid #d37272; width: 145px; height: 115px; display: table; float:left; border-radius: 5px; position: relative; background-color: #f37272">
+            <span style="position: absolute; left: 8px; bottom: 2px; color: #ff0000; text-shadow: 0 0 2px rgba(0,0,0,0.8)"><i class="fa fa-circle" data-toggle="tooltip" data-placement="top" title="Outcome: IDR. {{ random(1000000) | number_format }}"></i></span>
+        {% else %}
+          <div style="border: 1px solid #32e070; width: 145px; height: 115px; display: table; float:left; border-radius: 5px; position: relative; background-color: #449d44">
+          <span style="position: absolute; left: 8px; bottom: 2px; color: #0f0; text-shadow: 0 0 2px rgba(0,0,0,0.8)"><i class="fa fa-circle" data-toggle="tooltip" data-placement="top" title="Income: IDR. {{ random(2000000) | number_format }}"></i></span>
+        {% endif %}
+      {% else %}
+          <div style="border: 1px solid #3298df; width: 145px; height: 115px; display: table; float:left; border-radius: 5px; position: relative;">
+          <span style="position: absolute; left: 8px; bottom: 2px; color: #626262"><i class="fa fa-circle"></i></span>
+      {% endif %}
+        <span style="font-size: 25px; vertical-align: middle; display: table-cell; text-align: center">{{ i+1 }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>
